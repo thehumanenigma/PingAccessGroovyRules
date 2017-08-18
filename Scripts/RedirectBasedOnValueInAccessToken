@@ -1,0 +1,14 @@
+import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+//Check for root resource request path
+if(exc?.request?.uri=="/"){
+  
+//Retrieve domain attribute value
+ domain=exc?.user?.getFirstAttributeValue("Value_From_Access_Token");
+  
+//Check if user is from vendor domain and redirect accordingly
+ if(domain.contains("Vendor")){
+   exc?.setResponse(ResponseBuilder.found("<Domain/URI_Redirecting_To").build());
+pass(); 
+   
+ }
