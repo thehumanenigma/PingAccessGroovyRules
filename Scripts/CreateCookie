@@ -1,0 +1,9 @@
+List cookies = new java.util.ArrayList()
+String value = "1"
+String name = "<Cookie_Name>"
+com.pingidentity.pa.sdk.http.SetCookie cookie = new com.pingidentity.pa.sdk.http.SetCookie()
+cookie.name(name)
+cookie.value(value)
+cookies?.add(cookie.toHeaderField())
+exc?.response?.header?.setSetCookie(cookies)
+anything()
