@@ -1,0 +1,7 @@
+refererStr = exc?.request?.header?.getFirstValue("Referer");
+if(refererStr!=null && refererStr.contains("<Your_Domain_and_URI>"))
+{
+    exc?.response?.header?.removeFields("X-Frame-Options");
+    exc?.response?.header?.add("X-Frame-Options", "ALLOW-FROM <Your_Domain>");  
+}
+anything();
