@@ -1,0 +1,9 @@
+import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import com.pingidentity.pa.sdk.http.Response;
+def code = exc?.request?.header?.getStatusCode();
+if (code=='403') {
+  exc?.log.debug "GroovyDEBUG: 403 ";
+  exc?.setResponse(ResponseBuilder.found("<Domain/URI_To_Redirect_To>").build());
+  exc?.log.debug "GroovyDEBUG: redirecting... ";
+}
+anything()
